@@ -1,0 +1,158 @@
+{
+	"$schema": "https://vega.github.io/schema/vega-lite/v2.json",
+	"title": "TITULO GENERAL DE LA VIZ EN VEGA-LITE",	
+	"data": { "url": "./resources/data/_data_.csv","format": {"type": "csv"}},
+
+	"hconcat": [
+	  	{
+	  		"vconcat": [
+				{
+					"title": "TITULO - Gráfica 1","mark": "bar","width": 190,
+					"selection": {"click": {"encodings": ["color"], "type": "multi"}},
+					"encoding": {
+					
+						"color": {
+							"condition": {"field": "DIVISION","selection": "click","type": "nominal"},
+							"value": "lightgray"
+						},
+												
+						"x": {"aggregate": "count","field": "DIVISION","type": "nominal","title": "Título_X"},
+						"y": {"field": "DIVISION", "type": "nominal","title": "Título_Y"},
+
+						"tooltip": [						
+								{"field": "DIVISION","type": "nominal","title": "División"},
+								{"field": "DIVISION","type": "nominal","title": "# encuestas","aggregate": "count"}
+						]					
+					}			
+			  	},			  	
+			  	{
+					"title": "TITULO - Gráfica 2A","mark": "bar","width": 190,
+					"selection": {"click": {"encodings": ["color"], "type": "multi"}},
+					"encoding": {
+					
+						"color": {
+							"condition": {"field": "ANHO","selection": "click","type": "nominal"},
+							"value": "lightgray"
+						},
+						
+						"x": {"aggregate": "count","field": "ANHO","type": "quantitative","title": "Título_X"},
+						"y": {"field": "ANHO", "type": "nominal","title": "Título_Y"},						
+
+						"tooltip": [								
+								{"field": "ANHO","type": "nominal","title": "Año"},
+								{"field": "ANHO","type": "nominal","title": "# encuestas","aggregate": "count"}
+						]					
+					}					
+			  	},
+			  	{
+					"title": "TITULO - Gráfica 2B","mark": "bar","width": 190,
+					"selection": {"click": {"encodings": ["color"], "type": "multi"}},
+					"encoding": {
+					
+						"color": {
+							"condition": {"field": "TRIMESTRE","selection": "click","type": "nominal"},
+							"value": "lightgray"
+						},
+						
+						"x": {"aggregate": "count","field": "TRIMESTRE","type": "quantitative","title": "Título_X"},
+						"y": {"field": "ANHO", "type": "nominal","title": "Título_Y"},						
+
+						"tooltip": [								
+								{"field": "TRIMESTRE","type": "nominal","title": "Trimestre"},
+								{"field": "TRIMESTRE","type": "nominal","title": "# encuestas","aggregate": "count"}
+						]					
+					}					
+			  	}
+			]
+		},
+		{
+			"vconcat": [
+							  	
+			]
+		},
+		{
+			"vconcat": [				
+			  	{
+					"title": "¿EL TRATO QUE RECIBIO EN LA ATENCIÓN FUE?","mark": "bar","width": 60,
+					
+					  "encoding": {
+					    "column": {
+					      "field": "PREGUNTA_01", "type": "nominal"
+					    },
+					    "y": {
+					      "aggregate": "count", "field": "PREGUNTA_01", "type": "nominal",
+					      "axis": {"title": "population", "grid": false}
+					    },
+					    "x": {
+					      "field": "ANHO", "type": "nominal",					      
+					      "axis": {"title": ""}
+					    },
+
+						    "color": {
+						      "field": "ANHO", "type": "nominal"
+						    },
+
+					    "tooltip": [
+								{"field": "PREGUNTA_01","type": "nominal","title": "División"},
+								{"field": "PREGUNTA_01","type": "nominal","title": "# encuestas","aggregate": "count"},
+								{"field": "PREGUNTA_01_TOTAL", "type": "quantitative", "title": "# total de encuestas"},
+								{"field": "PercentOfTotal", "type": "quantitative", "title": "% de votos"}
+						]
+					  },
+					  
+					"transform": [
+						{"filter": {"selection": "click"}},
+						{"window": [{"op": "count","field": "PREGUNTA_01","as": "PREGUNTA_01_TOTAL"}],
+								"groupby": ["ANHO"],
+								"frame": [null, null]
+						},
+						{
+							"calculate": "datum.PREGUNTA_01/datum.PREGUNTA_01_TOTAL * 100",
+							"as": "PercentOfTotal"
+						}
+					]
+			  	},
+			  	{
+					"title": "¿EL TRATO QUE RECIBIO EN LA ATENCIÓN FUE?","mark": "bar","width": 60,
+					
+					  "encoding": {
+					    "column": {
+					      "field": "PREGUNTA_01", "type": "nominal"
+					    },
+					    "y": {
+					      "aggregate": "count", "field": "PREGUNTA_01", "type": "nominal",
+					      "axis": {"title": "population", "grid": false}
+					    },
+					    "x": {
+					      "field": "ANHO", "type": "nominal",					      
+					      "axis": {"title": ""}
+					    },
+
+						    "color": {
+						      "field": "ANHO", "type": "nominal"
+						    },
+
+					    "tooltip": [
+								{"field": "PREGUNTA_01","type": "nominal","title": "División"},
+								{"field": "PREGUNTA_01","type": "nominal","title": "# encuestas","aggregate": "count"},
+								{"field": "PREGUNTA_01_TOTAL", "type": "quantitative", "title": "# total de encuestas"},
+								{"field": "PercentOfTotal", "type": "quantitative", "title": "% de votos"}
+						]
+					  },
+					  
+					"transform": [
+						{"filter": {"selection": "click"}},
+						{"window": [{"op": "count","field": "PREGUNTA_01","as": "PREGUNTA_01_TOTAL"}],
+								"groupby": ["ANHO"],
+								"frame": [null, null]
+						},
+						{
+							"calculate": "datum.PREGUNTA_01_TOTAL * 100",
+							"as": "PercentOfTotal"
+						}
+					]
+			  	}
+			]
+		}		
+	]
+}

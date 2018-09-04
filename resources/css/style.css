@@ -1,0 +1,31 @@
+.vega-actions a {
+    margin-right: 15px;
+}
+
+html {
+    background-color: #efefef;
+    color: #555;
+    font-family: 'Lato', 'Arial', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    text-rendering: optimizeLegibility;
+}
+
+*::selection {
+    background: rgb(204, 224, 255); /* WebKit/Blink Browsers */
+}
+
+*::-moz-selection {
+    background: rgb(204, 224, 255); /* Gecko Browsers */  
+}
+
+.container {
+    width: 1320px;
+    
+    /*margin: Top Right Button Left;  */   
+    margin: 20px  auto 0 10px; 
+}
+
+.main-text,p{
+    text-align: justify;
+}
