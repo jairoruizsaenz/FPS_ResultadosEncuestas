@@ -1,7 +1,7 @@
 {
 	"$schema": "https://vega.github.io/schema/vega-lite/v2.json",
 	"title": "TITULO GENERAL DE LA VIZ EN VEGA-LITE",	
-	"data": { "url": "./resources/data/_data_.csv","format": {"type": "csv"}},
+	"data": { "url": "https://raw.githubusercontent.com/jairoruizsaenz/FPS_ResultadosEncuestas/master/resources/data/_data_.csv","format": {"type": "csv"}},
 
 	"hconcat": [
 	  	{
