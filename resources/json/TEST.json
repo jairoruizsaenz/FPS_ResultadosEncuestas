@@ -1,6 +1,6 @@
 {
 	"$schema": "https://vega.github.io/schema/vega-lite/v2.json",	
-	"data": { "url": "https://raw.githubusercontent.com/jairoruizsaenz/FPS_ResultadosEncuestas/master/resources/data/_data_.csv","format": {"type": "csv"}},
+	"data": { "url": "https://raw.githubusercontent.com/jairoruizsaenz/FPS_ResultadosEncuestas/master/resources/data/_data_.csv","format": {"type": "csv"}},	
 	"config": {
 		"title": {
 			"color":"#000000"
@@ -36,7 +36,7 @@
 						},
 
 						"color": {
-							"condition": {"selection": "click","value": "steelblue"},
+							"condition": {"selection": "click","value": "green"},
 							"value": "lightgray"
 						},
 
@@ -76,7 +76,7 @@
 						},
 						
 						"color": {
-							"condition": {"selection": "click","value": "steelblue"},
+							"condition": {"selection": "click","value": "green"},
 							"value": "lightgray"
 						},
 
@@ -106,7 +106,7 @@
 						},
 						
 						"color": {
-							"condition": {"selection": "click","value": "steelblue"},
+							"condition": {"selection": "click","value": "green"},
 							"value": "lightgray"
 						},
 
@@ -116,34 +116,7 @@
 							{"field": "*","type": "quantitative","title": "# Encuestas","aggregate": "count"}
 						]					
 					}					
-			  	},
-			  	{
-					"title": "","mark": "bar","width": 190,
-					"selection": {"click": {"encodings": ["y"], "type": "multi"}},
-					"encoding": {
-						
-						"x": {							
-							"axis": {"title": "Número de respuestas"},
-							"field": "*","type": "quantitative",							
-							"aggregate": "count"						
-						},
-
-						"y": {
-							"axis": {"title": "AÑO - G4"},
-							"field": "ANHO", "type": "nominal"							
-						},
-
-						"color": {
-							"condition": {"selection": "click","value": "steelblue"},
-							"value": "lightgray"
-						},
-						
-						"tooltip": [
-							{"field": "ANHO","type": "nominal","title": "Año"},						
-							{"field": "*","type": "quantitative","title": "# Encuestas","aggregate": "count"}
-						]					
-					}					
-			  	}
+			  	}			  	
 			]
 		},
 		{
@@ -182,7 +155,6 @@
 					  
 					"transform": [
 						{"filter": {"field": "ANHO", "equal": "2017"}},						
-						{"filter": {"field": "TRIMESTRE", "oneOf": ["1", "2"]}},
 						{"filter": {"selection": "click"}},
 						{
 							"window": [{"op": "count","field": "*","as": "TEMP_01"}],
