@@ -1,15 +1,12 @@
 {
-	"$schema": "https://vega.github.io/schema/vega-lite/v2.json",
-	"title": "TITULO GENERAL DE LA VIZ EN VEGA-LITE",	
+	"$schema": "https://vega.github.io/schema/vega-lite/v2.json",	
 	"data": { "url": "https://raw.githubusercontent.com/jairoruizsaenz/FPS_ResultadosEncuestas/master/resources/data/_data_.csv","format": {"type": "csv"}},
 	"config": {
 		"title": {
-			"color":"#f304d3"
+			"color":"#000000"
 		},
 
-		"legend":{			
-			"fillColor":"#f304d3"
-		}
+		"legend":{}
 	},	
 
 	"hconcat": [
@@ -17,13 +14,13 @@
 	  		"vconcat": [
 				{					
 					"title": {
-					    "text": "FILTROS:",					    
-					    "fontSize":20
+					    "text": "FILTROS:",
+					    "fontSize":15
 					  },
 
 					"mark": "bar",
 					"width": 190,
-					"selection": {"click": {"encodings": ["color"], "type": "multi"}},
+					"selection": {"click": {"encodings": ["y"], "type": "multi"}},
 					
 					"encoding": {
 																	
@@ -34,12 +31,12 @@
 						},
 
 						"y": {
-							"axis": {"title": ""},
+							"axis": {"title": "SECCIONAL - G1"},
 							"field": "DIVISION", "type": "nominal"							
 						},
 
 						"color": {
-							"condition": {"field": "DIVISION","type": "nominal","selection": "click"},
+							"condition": {"selection": "click","value": "steelblue"},
 							"value": "lightgray"
 						},
 
@@ -59,36 +56,42 @@
 						}						
 					]			
 			  	},			  	
-			  	{
-					"title": "","mark": "bar","width": 190,
-					"selection": {"click": {"encodings": ["color"], "type": "multi"}},
+			  	{					
+					
+					"mark": "bar",
+					"width": 190,
+					"selection": {"click": {"encodings": ["y"], "type": "multi"}},
+					
 					"encoding": {
-											
-						"x": {							
-							"axis": {"title": ""},
+																	
+						"x": {
+							"axis": {"title": ""},							
 							"field": "*","type": "quantitative",							
 							"aggregate": "count"
 						},
 
 						"y": {
-							"axis": {"title": ""},
-							"field": "ANHO", "type": "nominal"							
+							"axis": {"title": "TIPO DE SERVICIO - G2"},
+							"field": "TIPO_DE_SERVICIO", "type": "nominal"							
 						},
-
+						
 						"color": {
-							"condition": {"field": "ANHO","selection": "click","type": "nominal"},
+							"condition": {"selection": "click","value": "steelblue"},
 							"value": "lightgray"
 						},
 
-						"tooltip": [								
-								{"field": "ANHO","type": "nominal","title": "Año"},
-								{"field": "*","type": "quantitative","title": "# Encuestas","aggregate": "count","format": ",.0f"}
+						"tooltip": [
+							
+							{"field": "TIPO_DE_SERVICIO","type": "nominal","title": "División"},
+							{"field": "*","type": "quantitative","title": "# Encuestas","aggregate": "count"},
+							{"field": "num_total_encuestas","type": "quantitative","title": "# Total de encuestas","format": ",.0f"}
 						]					
-					}					
-			  	},
+					}
+					
+			  	},			  	
 			  	{
 					"title": "","mark": "bar","width": 190,
-					"selection": {"click": {"encodings": ["color"], "type": "multi"}},
+					"selection": {"click": {"encodings": ["y"], "type": "multi"}},
 					"encoding": {
 						
 						"x": {							
@@ -98,18 +101,45 @@
 						},
 
 						"y": {
-							"axis": {"title": ""},
-							"field": "ANHO", "type": "nominal"							
+							"axis": {"title": "TRIMESTRE - G3"},
+							"field": "TRIMESTRE", "type": "nominal"							
 						},
-
+						
 						"color": {
-							"condition": {"field": "TRIMESTRE","type": "nominal","selection": "click"},
+							"condition": {"selection": "click","value": "steelblue"},
 							"value": "lightgray"
 						},
 
 						"tooltip": [
-							{"field": "ANHO","type": "nominal","title": "Año"},
+							
 							{"field": "TRIMESTRE","type": "nominal","title": "Trimestre"},
+							{"field": "*","type": "quantitative","title": "# Encuestas","aggregate": "count"}
+						]					
+					}					
+			  	},
+			  	{
+					"title": "","mark": "bar","width": 190,
+					"selection": {"click": {"encodings": ["y"], "type": "multi"}},
+					"encoding": {
+						
+						"x": {							
+							"axis": {"title": "Número de respuestas"},
+							"field": "*","type": "quantitative",							
+							"aggregate": "count"						
+						},
+
+						"y": {
+							"axis": {"title": "AÑO - G4"},
+							"field": "ANHO", "type": "nominal"							
+						},
+
+						"color": {
+							"condition": {"selection": "click","value": "steelblue"},
+							"value": "lightgray"
+						},
+						
+						"tooltip": [
+							{"field": "ANHO","type": "nominal","title": "Año"},						
 							{"field": "*","type": "quantitative","title": "# Encuestas","aggregate": "count"}
 						]					
 					}					
@@ -124,13 +154,13 @@
 					"encoding": {
 						
 						"x": {
-							"axis": {"title": ""},
+							"axis": {"title": "","labelAngle": -70},
 							"field": "PREGUNTA_01", "type": "ordinal",							
 							"sort": ["EXCELENTE", "BUENO", "REGULAR", "MALO", "NO RESPONDE"]
 						},
 
 						"y": {
-							"axis": {"title": ""},
+							"axis": {"title": "PORCENTAJE - G5"},
 							"field": "TEMP_03","type": "quantitative"							
 						},
 
@@ -143,16 +173,16 @@
 							{"field": "PREGUNTA_01","type": "nominal","title": "Respuesta"},
 
 							{"field": "*","type": "quantitative","aggregate": "count","title": "# Encuestas","format": ",.0f"},
-
-							{"field": "TEMP_01", "type": "quantitative", "title": "TEMP_01","format": ",.0f"},
-							{"field": "TEMP_02", "type": "quantitative", "title": "TEMP_02_#TotalEncuestas_x_año","format": ",.0f"},							
-							{"field": "TEMP_03", "type": "quantitative", "title": "TEMP_03_Porcentaje","format": ",.1%"},
-							{"field": "jairo", "type": "quantitative", "title": "TEMP_04"}
+							
+							{"field": "TEMP_02", "type": "quantitative", "title": "#Total Encuestas","format": ",.0f"},							
+							{"field": "TEMP_03", "type": "quantitative", "title": "Porcentaje (%)","format": ",.1f"}
+							
 						]
 					},
 					  
 					"transform": [
-						{"filter": {"field": "ANHO", "equal": "2017"}},
+						{"filter": {"field": "ANHO", "equal": "2017"}},						
+						{"filter": {"field": "TRIMESTRE", "oneOf": ["1", "2"]}},
 						{"filter": {"selection": "click"}},
 						{
 							"window": [{"op": "count","field": "*","as": "TEMP_01"}],
@@ -167,7 +197,7 @@
 						},						
 
 						{
-							"calculate": "(datum.TEMP_01/datum.TEMP_02)",
+							"calculate": "(datum.TEMP_01/datum.TEMP_02)*100",
 							"as": "TEMP_03"
 						}
 					]
@@ -177,23 +207,26 @@
 		{
 			"vconcat": [
 				{
-					"title": "¿EL TRATO QUE RECIBIO EN LA ATENCIÓN FUE? - 2018","mark": "bar","width": 190,
+					"title": "¿EL TRATO QUE RECIBIO EN LA ATENCIÓN FUE? - 2017","mark": "bar","width": 190,
 					
 					"encoding": {
 						
 						"x": {
-							"axis": {"title": ""},
+							"axis": {"title": "","labelAngle": -70},
 							"field": "PREGUNTA_01", "type": "ordinal",							
 							"sort": ["EXCELENTE", "BUENO", "REGULAR", "MALO", "NO RESPONDE"]
 						},
 
 						"y": {
-							"axis": {"title": ""},
+							"axis": {"title": "PORCENTAJE - G6"},
 							"field": "TEMP_03","type": "quantitative"							
 						},
 
 						"color": {
-							"field": "ANHO", "type": "nominal"
+							"field": "ANHO", "type": "nominal",
+							"legend": {
+								"title":"AÑO"
+							}
 						},
 
 						"tooltip": [
@@ -201,11 +234,9 @@
 							{"field": "PREGUNTA_01","type": "nominal","title": "Respuesta"},
 
 							{"field": "*","type": "quantitative","aggregate": "count","title": "# Encuestas","format": ",.0f"},
-
-							{"field": "TEMP_01", "type": "quantitative", "title": "TEMP_01","format": ",.0f"},
-							{"field": "TEMP_02", "type": "quantitative", "title": "TEMP_02_#TotalEncuestas_x_año","format": ",.0f"},							
-							{"field": "TEMP_03", "type": "quantitative", "title": "TEMP_03_Porcentaje","format": ",.1%"},
-							{"field": "jairo", "type": "quantitative", "title": "TEMP_04"}
+							
+							{"field": "TEMP_02", "type": "quantitative", "title": "#Total Encuestas","format": ",.0f"},							
+							{"field": "TEMP_03", "type": "quantitative", "title": "Porcentaje (%)","format": ",.1f"}					
 						]
 					},
 					  
@@ -225,7 +256,7 @@
 						},						
 
 						{
-							"calculate": "(datum.TEMP_01/datum.TEMP_02)",
+							"calculate": "(datum.TEMP_01/datum.TEMP_02)*100",
 							"as": "TEMP_03"
 						}
 					]
