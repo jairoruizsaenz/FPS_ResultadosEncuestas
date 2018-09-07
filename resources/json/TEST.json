@@ -39,7 +39,7 @@
 						},
 
 						"color": {
-							"condition": {"field": "DIVISION","selection": "click","type": "nominal"},
+							"condition": {"field": "DIVISION","type": "nominal","selection": "click"},
 							"value": "lightgray"
 						},
 
@@ -119,24 +119,19 @@
 		{
 			"vconcat": [
 				{
-					"title": "¿EL TRATO QUE RECIBIO EN LA ATENCIÓN FUE?","mark": "bar","width": 60,
+					"title": "¿EL TRATO QUE RECIBIO EN LA ATENCIÓN FUE? - 2017","mark": "bar","width": 190,
 					
 					"encoding": {
 						
 						"x": {
 							"axis": {"title": ""},
-							"field": "ANHO", "type": "ordinal", 
-							"sort": ["2017","2018"]							
+							"field": "PREGUNTA_01", "type": "ordinal",							
+							"sort": ["EXCELENTE", "BUENO", "REGULAR", "MALO", "NO RESPONDE"]
 						},
 
 						"y": {
-							"axis": {"title": "Titulo_eje_Y", "grid": true},
-							"field": "*", "type": "quantitative",
-							"aggregate": "count"
-						},
-
-						"column": {
-							"field": "PREGUNTA_01", "type": "ordinal", "sort": ["EXCELENTE", "BUENO", "REGULAR", "MALO", "NO RESPONDE"]
+							"axis": {"title": ""},
+							"field": "TEMP_03","type": "quantitative"							
 						},
 
 						"color": {
@@ -146,16 +141,18 @@
 						"tooltip": [
 							{"field": "ANHO","type": "nominal","title": "Año"},
 							{"field": "PREGUNTA_01","type": "nominal","title": "Respuesta"},
+
 							{"field": "*","type": "quantitative","aggregate": "count","title": "# Encuestas","format": ",.0f"},
 
 							{"field": "TEMP_01", "type": "quantitative", "title": "TEMP_01","format": ",.0f"},
 							{"field": "TEMP_02", "type": "quantitative", "title": "TEMP_02_#TotalEncuestas_x_año","format": ",.0f"},							
 							{"field": "TEMP_03", "type": "quantitative", "title": "TEMP_03_Porcentaje","format": ",.1%"},
-							{"field": "TEMP_04", "type": "quantitative", "title": "TEMP_04"}
+							{"field": "jairo", "type": "quantitative", "title": "TEMP_04"}
 						]
 					},
 					  
 					"transform": [
+						{"filter": {"field": "ANHO", "equal": "2017"}},
 						{"filter": {"selection": "click"}},
 						{
 							"window": [{"op": "count","field": "*","as": "TEMP_01"}],
@@ -178,7 +175,62 @@
 			]
 		},
 		{
-			"vconcat": []
+			"vconcat": [
+				{
+					"title": "¿EL TRATO QUE RECIBIO EN LA ATENCIÓN FUE? - 2018","mark": "bar","width": 190,
+					
+					"encoding": {
+						
+						"x": {
+							"axis": {"title": ""},
+							"field": "PREGUNTA_01", "type": "ordinal",							
+							"sort": ["EXCELENTE", "BUENO", "REGULAR", "MALO", "NO RESPONDE"]
+						},
+
+						"y": {
+							"axis": {"title": ""},
+							"field": "TEMP_03","type": "quantitative"							
+						},
+
+						"color": {
+							"field": "ANHO", "type": "nominal"
+						},
+
+						"tooltip": [
+							{"field": "ANHO","type": "nominal","title": "Año"},
+							{"field": "PREGUNTA_01","type": "nominal","title": "Respuesta"},
+
+							{"field": "*","type": "quantitative","aggregate": "count","title": "# Encuestas","format": ",.0f"},
+
+							{"field": "TEMP_01", "type": "quantitative", "title": "TEMP_01","format": ",.0f"},
+							{"field": "TEMP_02", "type": "quantitative", "title": "TEMP_02_#TotalEncuestas_x_año","format": ",.0f"},							
+							{"field": "TEMP_03", "type": "quantitative", "title": "TEMP_03_Porcentaje","format": ",.1%"},
+							{"field": "jairo", "type": "quantitative", "title": "TEMP_04"}
+						]
+					},
+					  
+					"transform": [
+						{"filter": {"field": "ANHO", "equal": "2018"}},
+						{"filter": {"selection": "click"}},
+						{
+							"window": [{"op": "count","field": "*","as": "TEMP_01"}],
+							"groupby": ["PREGUNTA_01"],
+							"frame": [null, null]
+						},
+
+						{
+							"window": [{"op": "count","field": "*","as": "TEMP_02"}],
+							"groupby": ["ANHO"],
+							"frame": [null, null]
+						},						
+
+						{
+							"calculate": "(datum.TEMP_01/datum.TEMP_02)",
+							"as": "TEMP_03"
+						}
+					]
+			  	}
+			]
 		}		
 	]
 }
