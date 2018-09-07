@@ -14,12 +14,11 @@
 	  		"vconcat": [
 				{					
 					"title": {
-					    "text": "FILTROS:",
+					    "text": "Filtros:",
 					    "fontSize":15
 					  },
 
-					"mark": "bar",
-					"width": 190,
+					"mark": "bar", "width": 190,
 					"selection": {"click": {"encodings": ["y"], "type": "multi"}},
 					
 					"encoding": {
@@ -31,12 +30,12 @@
 						},
 
 						"y": {
-							"axis": {"title": "SECCIONAL - G1"},
+							"axis": {"title": "SECCIONAL"},
 							"field": "DIVISION", "type": "nominal"							
 						},
 
 						"color": {
-							"condition": {"selection": "click","value": "green"},
+							"condition": {"selection": "click","value": "#24a221"},
 							"value": "lightgray"
 						},
 
@@ -58,8 +57,7 @@
 			  	},			  	
 			  	{					
 					
-					"mark": "bar",
-					"width": 190,
+					"mark": "bar", "width": 190, "height": 190, "height": 190,
 					"selection": {"click": {"encodings": ["y"], "type": "multi"}},
 					
 					"encoding": {
@@ -71,17 +69,17 @@
 						},
 
 						"y": {
-							"axis": {"title": "TIPO DE SERVICIO - G2"},
+							"axis": {"title": "TIPO DE SERVICIO"},
 							"field": "TIPO_DE_SERVICIO", "type": "nominal"							
 						},
 						
 						"color": {
-							"condition": {"selection": "click","value": "green"},
+							"condition": {"selection": "click","value": "#d8241f"},
 							"value": "lightgray"
 						},
 
 						"tooltip": [
-							
+							{"field": "ANHO","type": "nominal","title": "Año"},
 							{"field": "TIPO_DE_SERVICIO","type": "nominal","title": "División"},
 							{"field": "*","type": "quantitative","title": "# Encuestas","aggregate": "count"},
 							{"field": "num_total_encuestas","type": "quantitative","title": "# Total de encuestas","format": ",.0f"}
@@ -101,17 +99,17 @@
 						},
 
 						"y": {
-							"axis": {"title": "TRIMESTRE - G3"},
+							"axis": {"title": "TRIMESTRE"},
 							"field": "TRIMESTRE", "type": "nominal"							
 						},
 						
 						"color": {
-							"condition": {"selection": "click","value": "green"},
+							"condition": {"selection": "click","value": "#9564bf"},
 							"value": "lightgray"
 						},
 
 						"tooltip": [
-							
+							{"field": "ANHO","type": "nominal","title": "Año"},
 							{"field": "TRIMESTRE","type": "nominal","title": "Trimestre"},
 							{"field": "*","type": "quantitative","title": "# Encuestas","aggregate": "count"}
 						]					
@@ -122,7 +120,7 @@
 		{
 			"vconcat": [
 				{
-					"title": "¿EL TRATO QUE RECIBIO EN LA ATENCIÓN FUE? - 2017","mark": "bar","width": 190,
+					"title": "¿El trato que recibio en la atención fue? 2017","mark": "bar","width": 190, "height": 190,
 					
 					"encoding": {
 						
@@ -133,7 +131,7 @@
 						},
 
 						"y": {
-							"axis": {"title": "PORCENTAJE - G5"},
+							"axis": {"title": "PORCENTAJE"},
 							"field": "TEMP_03","type": "quantitative"							
 						},
 
@@ -173,51 +171,311 @@
 							"as": "TEMP_03"
 						}
 					]
-			  	}
-			]
-		},
-		{
-			"vconcat": [
-				{
-					"title": "¿EL TRATO QUE RECIBIO EN LA ATENCIÓN FUE? - 2017","mark": "bar","width": 190,
+			  	},
+			  	{
+					"title": "¿El tiempo de atención fue? 2017","mark": "bar","width": 190,
 					
 					"encoding": {
 						
 						"x": {
 							"axis": {"title": "","labelAngle": -70},
-							"field": "PREGUNTA_01", "type": "ordinal",							
-							"sort": ["EXCELENTE", "BUENO", "REGULAR", "MALO", "NO RESPONDE"]
+							"field": "PREGUNTA_03", "type": "ordinal",
+							"sort": ["Menor de 30 Min", "De 30 a 45 Min", "Mayor de 45 Min", "NO RESPONDE"]
+							
 						},
 
 						"y": {
-							"axis": {"title": "PORCENTAJE - G6"},
+							"axis": {"title": "PORCENTAJE"},
 							"field": "TEMP_03","type": "quantitative"							
 						},
 
 						"color": {
-							"field": "ANHO", "type": "nominal",
-							"legend": {
-								"title":"AÑO"
-							}
+							"field": "ANHO", "type": "nominal"
 						},
 
 						"tooltip": [
 							{"field": "ANHO","type": "nominal","title": "Año"},
-							{"field": "PREGUNTA_01","type": "nominal","title": "Respuesta"},
+							{"field": "PREGUNTA_03","type": "nominal","title": "Respuesta"},
 
 							{"field": "*","type": "quantitative","aggregate": "count","title": "# Encuestas","format": ",.0f"},
 							
 							{"field": "TEMP_02", "type": "quantitative", "title": "#Total Encuestas","format": ",.0f"},							
-							{"field": "TEMP_03", "type": "quantitative", "title": "Porcentaje (%)","format": ",.1f"}					
+							{"field": "TEMP_03", "type": "quantitative", "title": "Porcentaje (%)","format": ",.1f"}
+							
 						]
 					},
 					  
 					"transform": [
-						{"filter": {"field": "ANHO", "equal": "2018"}},
+						{"filter": {"field": "ANHO", "equal": "2017"}},						
 						{"filter": {"selection": "click"}},
 						{
 							"window": [{"op": "count","field": "*","as": "TEMP_01"}],
-							"groupby": ["PREGUNTA_01"],
+							"groupby": ["PREGUNTA_03"],
+							"frame": [null, null]
+						},
+
+						{
+							"window": [{"op": "count","field": "*","as": "TEMP_02"}],
+							"groupby": ["ANHO"],
+							"frame": [null, null]
+						},						
+
+						{
+							"calculate": "(datum.TEMP_01/datum.TEMP_02)*100",
+							"as": "TEMP_03"
+						}
+					]
+			  	},
+			  	{
+					"title": "¿El funcionario que lo antedió fue claro con la información brindada? 2017","mark": "bar","width": 190,
+					
+					"encoding": {
+						
+						"x": {
+							"axis": {"title": "","labelAngle": -70},
+							"field": "PREGUNTA_04", "type": "ordinal",
+							"sort": ["SI", "NO", "NO RESPONDE"]
+						},
+
+						"y": {
+							"axis": {"title": "PORCENTAJE"},
+							"field": "TEMP_03","type": "quantitative"							
+						},
+
+						"color": {
+							"field": "ANHO", "type": "nominal"
+						},
+
+						"tooltip": [
+							{"field": "ANHO","type": "nominal","title": "Año"},
+							{"field": "PREGUNTA_04","type": "nominal","title": "Respuesta"},
+
+							{"field": "*","type": "quantitative","aggregate": "count","title": "# Encuestas","format": ",.0f"},
+							
+							{"field": "TEMP_02", "type": "quantitative", "title": "#Total Encuestas","format": ",.0f"},							
+							{"field": "TEMP_03", "type": "quantitative", "title": "Porcentaje (%)","format": ",.1f"}
+							
+						]
+					},
+					  
+					"transform": [
+						{"filter": {"field": "ANHO", "equal": "2017"}},						
+						{"filter": {"selection": "click"}},
+						{
+							"window": [{"op": "count","field": "*","as": "TEMP_01"}],
+							"groupby": ["PREGUNTA_04"],
+							"frame": [null, null]
+						},
+
+						{
+							"window": [{"op": "count","field": "*","as": "TEMP_02"}],
+							"groupby": ["ANHO"],
+							"frame": [null, null]
+						},						
+
+						{
+							"calculate": "(datum.TEMP_01/datum.TEMP_02)*100",
+							"as": "TEMP_03"
+						}
+					]
+			  	},
+			  	{
+					"title": "¿El funcionario que lo antedió escucho atentamente su solicitud? 2017","mark": "bar","width": 190,
+										
+					"encoding": {
+						
+						"x": {
+							"axis": {"title": "","labelAngle": -70},
+							"field": "PREGUNTA_05", "type": "ordinal",
+							"sort": ["SI", "NO", "NO RESPONDE"]
+						},
+
+						"y": {
+							"axis": {"title": "PORCENTAJE"},
+							"field": "TEMP_03","type": "quantitative"							
+						},
+
+						"color": {
+							"field": "ANHO", "type": "nominal"
+						},
+
+						"tooltip": [
+							{"field": "ANHO","type": "nominal","title": "Año"},
+							{"field": "PREGUNTA_05","type": "nominal","title": "Respuesta"},
+
+							{"field": "*","type": "quantitative","aggregate": "count","title": "# Encuestas","format": ",.0f"},
+							
+							{"field": "TEMP_02", "type": "quantitative", "title": "#Total Encuestas","format": ",.0f"},							
+							{"field": "TEMP_03", "type": "quantitative", "title": "Porcentaje (%)","format": ",.1f"}
+							
+						]
+					},
+					  
+					"transform": [
+						{"filter": {"field": "ANHO", "equal": "2017"}},						
+						{"filter": {"selection": "click"}},
+						{
+							"window": [{"op": "count","field": "*","as": "TEMP_01"}],
+							"groupby": ["PREGUNTA_05"],
+							"frame": [null, null]
+						},
+
+						{
+							"window": [{"op": "count","field": "*","as": "TEMP_02"}],
+							"groupby": ["ANHO"],
+							"frame": [null, null]
+						},						
+
+						{
+							"calculate": "(datum.TEMP_01/datum.TEMP_02)*100",
+							"as": "TEMP_03"
+						}
+					]
+			  	},
+			  	{
+					"title": "¿El funcionario le informo sobre el trámite a seguir? 2017","mark": "bar","width": 190,
+
+					"encoding": {
+						
+						"x": {
+							"axis": {"title": "","labelAngle": -70},
+							"field": "PREGUNTA_06", "type": "ordinal",
+							"sort": ["SI", "NO", "NO RESPONDE"]
+						},
+
+						"y": {
+							"axis": {"title": "PORCENTAJE"},
+							"field": "TEMP_03","type": "quantitative"							
+						},
+
+						"color": {
+							"field": "ANHO", "type": "nominal"
+						},
+
+						"tooltip": [
+							{"field": "ANHO","type": "nominal","title": "Año"},
+							{"field": "PREGUNTA_06","type": "nominal","title": "Respuesta"},
+
+							{"field": "*","type": "quantitative","aggregate": "count","title": "# Encuestas","format": ",.0f"},
+							
+							{"field": "TEMP_02", "type": "quantitative", "title": "#Total Encuestas","format": ",.0f"},							
+							{"field": "TEMP_03", "type": "quantitative", "title": "Porcentaje (%)","format": ",.1f"}
+							
+						]
+					},
+					  
+					"transform": [
+						{"filter": {"field": "ANHO", "equal": "2017"}},						
+						{"filter": {"selection": "click"}},
+						{
+							"window": [{"op": "count","field": "*","as": "TEMP_01"}],
+							"groupby": ["PREGUNTA_06"],
+							"frame": [null, null]
+						},
+
+						{
+							"window": [{"op": "count","field": "*","as": "TEMP_02"}],
+							"groupby": ["ANHO"],
+							"frame": [null, null]
+						},						
+
+						{
+							"calculate": "(datum.TEMP_01/datum.TEMP_02)*100",
+							"as": "TEMP_03"
+						}
+					]
+			  	},
+			  	{
+					"title": "¿Considera que las instalaciones de las oficinas donde lo atendieron están adecuadas a sus necesidades? 2017","mark": "bar","width": 190,
+															
+					"encoding": {
+						
+						"x": {
+							"axis": {"title": "","labelAngle": -70},
+							"field": "PREGUNTA_07", "type": "ordinal",
+							"sort": ["SI", "NO", "NO RESPONDE"]
+						},
+
+						"y": {
+							"axis": {"title": "PORCENTAJE"},
+							"field": "TEMP_03","type": "quantitative"							
+						},
+
+						"color": {
+							"field": "ANHO", "type": "nominal"
+						},
+
+						"tooltip": [
+							{"field": "ANHO","type": "nominal","title": "Año"},
+							{"field": "PREGUNTA_07","type": "nominal","title": "Respuesta"},
+
+							{"field": "*","type": "quantitative","aggregate": "count","title": "# Encuestas","format": ",.0f"},
+							
+							{"field": "TEMP_02", "type": "quantitative", "title": "#Total Encuestas","format": ",.0f"},							
+							{"field": "TEMP_03", "type": "quantitative", "title": "Porcentaje (%)","format": ",.1f"}
+							
+						]
+					},
+					  
+					"transform": [
+						{"filter": {"field": "ANHO", "equal": "2017"}},						
+						{"filter": {"selection": "click"}},
+						{
+							"window": [{"op": "count","field": "*","as": "TEMP_01"}],
+							"groupby": ["PREGUNTA_07"],
+							"frame": [null, null]
+						},
+
+						{
+							"window": [{"op": "count","field": "*","as": "TEMP_02"}],
+							"groupby": ["ANHO"],
+							"frame": [null, null]
+						},						
+
+						{
+							"calculate": "(datum.TEMP_01/datum.TEMP_02)*100",
+							"as": "TEMP_03"
+						}
+					]
+			  	},
+			  	{
+					"title": "¿Ha tenido la oportunidad de comprobar que los funcionarios cuentan con elementos de trabajo suficientes para llevar a cabo su trabajo? 2017","mark": "bar","width": 190,
+															
+					"encoding": {
+						
+						"x": {
+							"axis": {"title": "","labelAngle": -70},
+							"field": "PREGUNTA_08", "type": "ordinal",
+							"sort": ["SI", "NO", "NO RESPONDE"]
+						},
+
+						"y": {
+							"axis": {"title": "PORCENTAJE"},
+							"field": "TEMP_03","type": "quantitative"							
+						},
+
+						"color": {
+							"field": "ANHO", "type": "nominal"
+						},
+
+						"tooltip": [
+							{"field": "ANHO","type": "nominal","title": "Año"},
+							{"field": "PREGUNTA_08","type": "nominal","title": "Respuesta"},
+
+							{"field": "*","type": "quantitative","aggregate": "count","title": "# Encuestas","format": ",.0f"},
+							
+							{"field": "TEMP_02", "type": "quantitative", "title": "#Total Encuestas","format": ",.0f"},							
+							{"field": "TEMP_03", "type": "quantitative", "title": "Porcentaje (%)","format": ",.1f"}
+							
+						]
+					},
+					  
+					"transform": [
+						{"filter": {"field": "ANHO", "equal": "2017"}},						
+						{"filter": {"selection": "click"}},
+						{
+							"window": [{"op": "count","field": "*","as": "TEMP_01"}],
+							"groupby": ["PREGUNTA_08"],
 							"frame": [null, null]
 						},
 
@@ -234,6 +492,9 @@
 					]
 			  	}
 			]
+		},
+		{
+			"vconcat": []
 		}		
 	]
 }
