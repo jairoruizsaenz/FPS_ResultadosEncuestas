@@ -1,6 +1,6 @@
 {
 	"$schema": "https://vega.github.io/schema/vega-lite/v2.json",	
-	"data": { "url": "https://raw.githubusercontent.com/jairoruizsaenz/FPS_ResultadosEncuestas/master/resources/data/_data_.csv","format": {"type": "csv"}},	
+	"data": { "url": "https://raw.githubusercontent.com/jairoruizsaenz/FPS_ResultadosEncuestas/master/resources/data/_data_.csv","format": {"type": "csv"}},					 
 	"config": {
 		"title": {
 			"color":"#000000",
@@ -129,8 +129,8 @@
 								
 								"x": {
 									"axis": {"title": "","labelAngle": -70},
-									"field": "PREGUNTA_01", "type": "ordinal",							
-									"sort": ["EXCELENTE", "BUENO", "REGULAR", "MALO", "NO RESPONDE"]
+									"field": "PREGUNTA_01", "type": "ordinal"
+									
 								},
 
 								"y": {
@@ -161,7 +161,8 @@
 										"type": "text",
 										"align": "center",
 										"baseline": "middle",
-										"dy": -10
+										"dy": -10,
+										"fontSize":12
 									},
 
 								"encoding": {
@@ -231,7 +232,8 @@
 										"type": "text",
 										"align": "center",
 										"baseline": "middle",
-										"dy": -10
+										"dy": -10,
+										"fontSize":12
 									},
 
 								"encoding": {
@@ -306,7 +308,8 @@
 										"type": "text",
 										"align": "center",
 										"baseline": "middle",
-										"dy": -10
+										"dy": -10,
+										"fontSize":12
 									},
 
 								"encoding": {
@@ -377,7 +380,8 @@
 										"type": "text",
 										"align": "center",
 										"baseline": "middle",
-										"dy": -10
+										"dy": -10,
+										"fontSize":12
 									},
 
 								"encoding": {
@@ -451,7 +455,8 @@
 										"type": "text",
 										"align": "center",
 										"baseline": "middle",
-										"dy": -10
+										"dy": -10,
+										"fontSize":12
 									},
 
 								"encoding": {
