@@ -139,7 +139,8 @@
 								},
 
 								"color": {
-									"field": "ANHO", "type": "nominal"
+									"field": "ANHO", "type": "nominal",
+									"legend": { "title":"Año" }
 								},
 
 								"tooltip": [
@@ -149,11 +150,27 @@
 									{"field": "*","type": "quantitative","aggregate": "count","title": "# Encuestas","format": ",.0f"},
 									
 									{"field": "TEMP_02", "type": "quantitative", "title": "#Total Encuestas","format": ",.0f"},							
-									{"field": "TEMP_03", "type": "quantitative", "title": "Porcentaje (%)","format": ",.1f"}
-									
+									{"field": "TEMP_03", "type": "quantitative", "title": "Porcentaje (%)","format": ",.1f"}									
 								]
 							},
-							  
+
+							"layer": [
+								{"mark": "bar"},
+								{
+									"mark": {
+										"type": "text",
+										"align": "center",
+										"baseline": "middle",
+										"dy": -10
+									},
+
+								"encoding": {
+									"text": {"field": "TEMP_03", "type": "quantitative","format": ",.1f"},									
+									"color": {"value": "black"}									
+									}
+								}
+							],
+
 							"transform": [
 								{"filter": {"field": "ANHO", "equal": "2018"}},						
 								{"filter": {"selection": "click"}},
@@ -206,7 +223,24 @@
 									
 								]
 							},
-							  
+
+							"layer": [
+								{"mark": "bar"},
+								{
+									"mark": {
+										"type": "text",
+										"align": "center",
+										"baseline": "middle",
+										"dy": -10
+									},
+
+								"encoding": {
+									"text": {"field": "TEMP_03", "type": "quantitative","format": ",.1f"},									
+									"color": {"value": "black"}									
+									}
+								}
+							],
+
 							"transform": [
 								{"filter": {"field": "ANHO", "equal": "2017"}},						
 								{"filter": {"selection": "click"}},
@@ -264,7 +298,24 @@
 									
 								]
 							},
-							  
+							
+							"layer": [
+								{"mark": "bar"},
+								{
+									"mark": {
+										"type": "text",
+										"align": "center",
+										"baseline": "middle",
+										"dy": -10
+									},
+
+								"encoding": {
+									"text": {"field": "TEMP_03", "type": "quantitative","format": ",.1f"},									
+									"color": {"value": "black"}									
+									}
+								}
+							],
+							
 							"transform": [
 								{"filter": {"field": "ANHO", "equal": "2018"}},						
 								{"filter": {"selection": "click"}},
@@ -318,6 +369,23 @@
 									
 								]
 							},
+							
+							"layer": [
+								{"mark": "bar"},
+								{
+									"mark": {
+										"type": "text",
+										"align": "center",
+										"baseline": "middle",
+										"dy": -10
+									},
+
+								"encoding": {
+									"text": {"field": "TEMP_03", "type": "quantitative","format": ",.1f"},									
+									"color": {"value": "black"}									
+									}
+								}
+							],
 							  
 							"transform": [
 								{"filter": {"field": "ANHO", "equal": "2017"}},						
@@ -375,6 +443,23 @@
 									
 								]
 							},
+							
+							"layer": [
+								{"mark": "bar"},
+								{
+									"mark": {
+										"type": "text",
+										"align": "center",
+										"baseline": "middle",
+										"dy": -10
+									},
+
+								"encoding": {
+									"text": {"field": "TEMP_03", "type": "quantitative","format": ",.1f"},									
+									"color": {"value": "black"}									
+									}
+								}
+							],
 							  
 							"transform": [
 								{"filter": {"field": "ANHO", "equal": "2018"}},						
@@ -428,6 +513,23 @@
 									
 								]
 							},
+							
+							"layer": [
+								{"mark": "bar"},
+								{
+									"mark": {
+										"type": "text",
+										"align": "center",
+										"baseline": "middle",
+										"dy": -10
+									},
+
+								"encoding": {
+									"text": {"field": "TEMP_03", "type": "quantitative","format": ",.1f"},									
+									"color": {"value": "black"}									
+									}
+								}
+							],
 							  
 							"transform": [
 								{"filter": {"field": "ANHO", "equal": "2017"}},						
@@ -485,6 +587,23 @@
 									
 								]
 							},
+							
+							"layer": [
+								{"mark": "bar"},
+								{
+									"mark": {
+										"type": "text",
+										"align": "center",
+										"baseline": "middle",
+										"dy": -10
+									},
+
+								"encoding": {
+									"text": {"field": "TEMP_03", "type": "quantitative","format": ",.1f"},									
+									"color": {"value": "black"}									
+									}
+								}
+							],
 							  
 							"transform": [
 								{"filter": {"field": "ANHO", "equal": "2018"}},						
@@ -538,6 +657,23 @@
 									
 								]
 							},
+							
+							"layer": [
+								{"mark": "bar"},
+								{
+									"mark": {
+										"type": "text",
+										"align": "center",
+										"baseline": "middle",
+										"dy": -10
+									},
+
+								"encoding": {
+									"text": {"field": "TEMP_03", "type": "quantitative","format": ",.1f"},									
+									"color": {"value": "black"}									
+									}
+								}
+							],
 							  
 							"transform": [
 								{"filter": {"field": "ANHO", "equal": "2017"}},						
@@ -595,6 +731,23 @@
 									
 								]
 							},
+							
+							"layer": [
+								{"mark": "bar"},
+								{
+									"mark": {
+										"type": "text",
+										"align": "center",
+										"baseline": "middle",
+										"dy": -10
+									},
+
+								"encoding": {
+									"text": {"field": "TEMP_03", "type": "quantitative","format": ",.1f"},									
+									"color": {"value": "black"}									
+									}
+								}
+							],
 							  
 							"transform": [
 								{"filter": {"field": "ANHO", "equal": "2018"}},						
@@ -648,6 +801,23 @@
 									
 								]
 							},
+							
+							"layer": [
+								{"mark": "bar"},
+								{
+									"mark": {
+										"type": "text",
+										"align": "center",
+										"baseline": "middle",
+										"dy": -10
+									},
+
+								"encoding": {
+									"text": {"field": "TEMP_03", "type": "quantitative","format": ",.1f"},									
+									"color": {"value": "black"}									
+									}
+								}
+							],
 							  
 							"transform": [
 								{"filter": {"field": "ANHO", "equal": "2017"}},
@@ -705,6 +875,23 @@
 									
 								]
 							},
+							
+							"layer": [
+								{"mark": "bar"},
+								{
+									"mark": {
+										"type": "text",
+										"align": "center",
+										"baseline": "middle",
+										"dy": -10
+									},
+
+								"encoding": {
+									"text": {"field": "TEMP_03", "type": "quantitative","format": ",.1f"},									
+									"color": {"value": "black"}									
+									}
+								}
+							],
 							  
 							"transform": [
 								{"filter": {"field": "ANHO", "equal": "2018"}},						
@@ -758,6 +945,74 @@
 									
 								]
 							},
+							
+							"layer": [
+								{"mark": "bar"},
+								{
+									"mark": {
+										"type": "text",
+										"align": "center",
+										"baseline": "middle",
+										"dy": -10
+									},
+
+								"encoding": {
+									"text": {"field": "TEMP_03", "type": "quantitative","format": ",.1f"},									
+									"color": {"value": "black"}									
+									}
+								}
+							],
+							
+							"layer": [
+								{"mark": "bar"},
+								{
+									"mark": {
+										"type": "text",
+										"align": "center",
+										"baseline": "middle",
+										"dy": -10
+									},
+
+								"encoding": {
+									"text": {"field": "TEMP_03", "type": "quantitative","format": ",.1f"},									
+									"color": {"value": "black"}									
+									}
+								}
+							],
+							
+							"layer": [
+								{"mark": "bar"},
+								{
+									"mark": {
+										"type": "text",
+										"align": "center",
+										"baseline": "middle",
+										"dy": -10
+									},
+
+								"encoding": {
+									"text": {"field": "TEMP_03", "type": "quantitative","format": ",.1f"},									
+									"color": {"value": "black"}									
+									}
+								}
+							],
+							
+							"layer": [
+								{"mark": "bar"},
+								{
+									"mark": {
+										"type": "text",
+										"align": "center",
+										"baseline": "middle",
+										"dy": -10
+									},
+
+								"encoding": {
+									"text": {"field": "TEMP_03", "type": "quantitative","format": ",.1f"},									
+									"color": {"value": "black"}									
+									}
+								}
+							],
 							  
 							"transform": [
 								{"filter": {"field": "ANHO", "equal": "2017"}},						
@@ -815,6 +1070,23 @@
 									
 								]
 							},
+							
+							"layer": [
+								{"mark": "bar"},
+								{
+									"mark": {
+										"type": "text",
+										"align": "center",
+										"baseline": "middle",
+										"dy": -10
+									},
+
+								"encoding": {
+									"text": {"field": "TEMP_03", "type": "quantitative","format": ",.1f"},									
+									"color": {"value": "black"}									
+									}
+								}
+							],
 							  
 							"transform": [
 								{"filter": {"field": "ANHO", "equal": "2018"}},						
@@ -868,6 +1140,23 @@
 									
 								]
 							},
+							
+							"layer": [
+								{"mark": "bar"},
+								{
+									"mark": {
+										"type": "text",
+										"align": "center",
+										"baseline": "middle",
+										"dy": -10
+									},
+
+								"encoding": {
+									"text": {"field": "TEMP_03", "type": "quantitative","format": ",.1f"},									
+									"color": {"value": "black"}									
+									}
+								}
+							],
 							  
 							"transform": [
 								{"filter": {"field": "ANHO", "equal": "2017"}},						
