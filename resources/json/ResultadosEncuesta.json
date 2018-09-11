@@ -4,7 +4,7 @@
 	"config": {
 		"title": {
 			"color":"#000000",
-			"limit":190
+			"fontSize":15
 		},
 
 		"legend":{}
@@ -128,10 +128,14 @@
 		},
 		{
 	  		"vconcat": [
-				{
+				{					
 					"hconcat": [
-						{
-							"title": "Pregunta 1 - 2018","mark": "bar","width": 190, "height": 190,
+						{"vconcat": [{
+							"title": "P1: ¿El trato que recibio en la atención fue?","mark": "text","width": 400, "height": 1
+							},{"hconcat": [
+
+							{
+							"title": "2018","mark": "bar","width": 190, "height": 190,
 							
 							"encoding": {
 								
@@ -202,7 +206,7 @@
 							]
 					  	},
 					  	{
-							"title": "Pregunta 1 - 2017","mark": "bar","width": 190, "height": 190,
+							"title": "2017","mark": "bar","width": 190, "height": 190,
 							
 							"encoding": {
 								
@@ -272,12 +276,18 @@
 								}
 							]
 					  	}
+							]}
+						]}						
 					]
 				},
+
 				{
 					"hconcat": [
+						{"vconcat": [{
+							"title": "P2: ¿El tiempo de atención fue?","mark": "text","width": 400, "height": 1
+							},{"hconcat": [
 					  	{
-							"title": "Pregunta 2 - 2018","mark": "bar","width": 190,
+							"title": "2018","mark": "bar","width": 190,
 							
 							"encoding": {
 								
@@ -349,7 +359,7 @@
 							]
 					  	},
 					  	{
-							"title": "Pregunta 2 - 2017","mark": "bar","width": 190,
+							"title": "2017","mark": "bar","width": 190,
 							
 							"encoding": {
 								
@@ -420,12 +430,17 @@
 								}
 							]
 					  	}
+
+					  	]}]}				
 					]
 				},
 				{
 					"hconcat": [
+						{"vconcat": [{
+							"title": "P3: ¿El funcionario que lo atendió fue claro con la información brindada?","mark": "text","width": 400, "height": 1
+							},{"hconcat": [
 					  	{
-							"title": "Pregunta 3 - 2018","mark": "bar","width": 190,
+							"title": "2018","mark": "bar","width": 190,
 							
 							"encoding": {
 								
@@ -496,7 +511,7 @@
 							]
 					  	},
 					  	{
-							"title": "Pregunta 3 - 2017","mark": "bar","width": 190,
+							"title": "2017","mark": "bar","width": 190,
 							
 							"encoding": {
 								
@@ -566,12 +581,16 @@
 								}
 							]
 					  	}
+					  	]}]}
 					]
 				},
 				{
 					"hconcat": [
+						{"vconcat": [{
+							"title": "P4: ¿El funcionario que lo antedió esuchó atentamente su solicitud?","mark": "text","width": 400, "height": 1
+							},{"hconcat": [
 					  	{
-							"title": "Pregunta 4 - 2018","mark": "bar","width": 190,
+							"title": "2018","mark": "bar","width": 190,
 												
 							"encoding": {
 								
@@ -642,7 +661,7 @@
 							]
 					  	},
 					  	{
-							"title": "Pregunta 4 - 2017","mark": "bar","width": 190,
+							"title": "2017","mark": "bar","width": 190,
 												
 							"encoding": {
 								
@@ -712,12 +731,16 @@
 								}
 							]
 					  	}
+					  	]}]}
 					]
 				},
 				{
 					"hconcat": [
+						{"vconcat": [{
+							"title": "P5: ¿El funcionario le informó sobre el trámite a seguir?","mark": "text","width": 400, "height": 1
+							},{"hconcat": [
 					  	{
-							"title": "Pregunta 5 - 2018","mark": "bar","width": 190,
+							"title": "2018","mark": "bar","width": 190,
 
 							"encoding": {
 								
@@ -788,7 +811,7 @@
 							]
 					  	},
 					  	{
-							"title": "Pregunta 5 - 2017","mark": "bar","width": 190,
+							"title": "2017","mark": "bar","width": 190,
 
 							"encoding": {
 								
@@ -858,12 +881,16 @@
 								}
 							]
 					  	}
+					  	]}]}
 					]
 				},
 				{
 					"hconcat": [
+					  	{"vconcat": [{
+							"title": "P6: ¿Considera que las instalaciones de las oficinas donde lo atendieron están adecuadas a sus necesidades?","mark": "text","width": 400, "height": 1
+							},{"hconcat": [
 					  	{
-							"title": "Pregunta 6 - 2018","mark": "bar","width": 190,
+							"title": "2018","mark": "bar","width": 190,
 																	
 							"encoding": {
 								
@@ -934,7 +961,7 @@
 							]
 					  	},
 					  	{
-							"title": "Pregunta 6 - 2017","mark": "bar","width": 190,
+							"title": "2017","mark": "bar","width": 190,
 																	
 							"encoding": {
 								
@@ -1058,12 +1085,16 @@
 								}
 							]
 					  	}
+					  	]}]}
 					]
 				},
 				{
 					"hconcat": [
+					  	{"vconcat": [{
+							"title": "P7: ¿Ha tenido la oportunidad de comprobar que los funcionarios cuentan con elementos de trabajo suficientes para llevar a cabo su trabajo?","mark": "text","width": 400, "height": 1
+							},{"hconcat": [
 					  	{
-							"title": "Pregunta 7 - 2018","mark": "bar","width": 190,
+							"title": "2018","mark": "bar","width": 190,
 																	
 							"encoding": {
 								
@@ -1134,7 +1165,7 @@
 							]
 					  	},
 					  	{
-							"title": "Pregunta 7 - 2017","mark": "bar","width": 190,
+							"title": "2017","mark": "bar","width": 190,
 																	
 							"encoding": {
 								
@@ -1204,6 +1235,7 @@
 								}
 							]
 					  	}
+					  	]}]}
 					]
 				}
 			]
