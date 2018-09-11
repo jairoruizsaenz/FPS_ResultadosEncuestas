@@ -54,7 +54,7 @@
 							"groupby": ["DIVISION"],							
 							"frame": [null, null]
 						}						
-					]			
+					]
 			  	},			  	
 			  	{					
 					
@@ -85,7 +85,15 @@
 							{"field": "*","type": "quantitative","title": "# Encuestas","aggregate": "count"},
 							{"field": "num_total_encuestas","type": "quantitative","title": "# Total de encuestas","format": ",.0f"}
 						]					
-					}
+					},
+
+					"transform": [						
+						{
+							"window": [{"op": "count","field": "*","as": "num_total_encuestas"}],
+							"groupby": ["TIPO_DE_SERVICIO"],							
+							"frame": [null, null]
+						}						
+					]
 					
 			  	},			  	
 			  	{
@@ -128,7 +136,7 @@
 							"encoding": {
 								
 								"x": {
-									"axis": {"title": "","labelAngle": -70},
+									"axis": {"title": "","labelAngle": -80},
 									"field": "PREGUNTA_01", "type": "ordinal"
 									
 								},
@@ -199,7 +207,7 @@
 							"encoding": {
 								
 								"x": {
-									"axis": {"title": "","labelAngle": -70},
+									"axis": {"title": "","labelAngle": -80},
 									"field": "PREGUNTA_01", "type": "ordinal",							
 									"sort": ["EXCELENTE", "BUENO", "REGULAR", "MALO", "NO RESPONDE"]
 								},
@@ -274,7 +282,7 @@
 							"encoding": {
 								
 								"x": {
-									"axis": {"title": "","labelAngle": -70},
+									"axis": {"title": "","labelAngle": -80},
 									"field": "PREGUNTA_03", "type": "ordinal",
 									"sort": ["Menor de 30 Min", "De 30 a 45 Min", "Mayor de 45 Min", "NO RESPONDE"]
 									
@@ -346,7 +354,7 @@
 							"encoding": {
 								
 								"x": {
-									"axis": {"title": "","labelAngle": -70},
+									"axis": {"title": "","labelAngle": -80},
 									"field": "PREGUNTA_03", "type": "ordinal",
 									"sort": ["Menor de 30 Min", "De 30 a 45 Min", "Mayor de 45 Min", "NO RESPONDE"]
 									
@@ -422,7 +430,7 @@
 							"encoding": {
 								
 								"x": {
-									"axis": {"title": "","labelAngle": -70},
+									"axis": {"title": "","labelAngle": -80},
 									"field": "PREGUNTA_04", "type": "ordinal",
 									"sort": ["SI", "NO", "NO RESPONDE"]
 								},
@@ -493,7 +501,7 @@
 							"encoding": {
 								
 								"x": {
-									"axis": {"title": "","labelAngle": -70},
+									"axis": {"title": "","labelAngle": -80},
 									"field": "PREGUNTA_04", "type": "ordinal",
 									"sort": ["SI", "NO", "NO RESPONDE"]
 								},
@@ -568,7 +576,7 @@
 							"encoding": {
 								
 								"x": {
-									"axis": {"title": "","labelAngle": -70},
+									"axis": {"title": "","labelAngle": -80},
 									"field": "PREGUNTA_05", "type": "ordinal",
 									"sort": ["SI", "NO", "NO RESPONDE"]
 								},
@@ -639,7 +647,7 @@
 							"encoding": {
 								
 								"x": {
-									"axis": {"title": "","labelAngle": -70},
+									"axis": {"title": "","labelAngle": -80},
 									"field": "PREGUNTA_05", "type": "ordinal",
 									"sort": ["SI", "NO", "NO RESPONDE"]
 								},
@@ -714,7 +722,7 @@
 							"encoding": {
 								
 								"x": {
-									"axis": {"title": "","labelAngle": -70},
+									"axis": {"title": "","labelAngle": -80},
 									"field": "PREGUNTA_06", "type": "ordinal",
 									"sort": ["SI", "NO", "NO RESPONDE"]
 								},
@@ -785,7 +793,7 @@
 							"encoding": {
 								
 								"x": {
-									"axis": {"title": "","labelAngle": -70},
+									"axis": {"title": "","labelAngle": -80},
 									"field": "PREGUNTA_06", "type": "ordinal",
 									"sort": ["SI", "NO", "NO RESPONDE"]
 								},
@@ -860,7 +868,7 @@
 							"encoding": {
 								
 								"x": {
-									"axis": {"title": "","labelAngle": -70},
+									"axis": {"title": "","labelAngle": -80},
 									"field": "PREGUNTA_07", "type": "ordinal",
 									"sort": ["SI", "NO", "NO RESPONDE"]
 								},
@@ -931,7 +939,7 @@
 							"encoding": {
 								
 								"x": {
-									"axis": {"title": "","labelAngle": -70},
+									"axis": {"title": "","labelAngle": -80},
 									"field": "PREGUNTA_07", "type": "ordinal",
 									"sort": ["SI", "NO", "NO RESPONDE"]
 								},
@@ -1060,7 +1068,7 @@
 							"encoding": {
 								
 								"x": {
-									"axis": {"title": "","labelAngle": -70},
+									"axis": {"title": "","labelAngle": -80},
 									"field": "PREGUNTA_08", "type": "ordinal",
 									"sort": ["SI", "NO", "NO RESPONDE"]
 								},
@@ -1131,7 +1139,7 @@
 							"encoding": {
 								
 								"x": {
-									"axis": {"title": "","labelAngle": -70},
+									"axis": {"title": "","labelAngle": -80},
 									"field": "PREGUNTA_08", "type": "ordinal",
 									"sort": ["SI", "NO", "NO RESPONDE"]
 								},
