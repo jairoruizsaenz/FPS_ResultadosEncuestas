@@ -10,12 +10,12 @@
 		"legend":{}
 	},	
 
-	"hconcat": [
+	"vconcat": [
 	  	{
-	  		"vconcat": [
+	  		"hconcat": [
 				{					
 					"title": {
-					    "text": "Filtros:",
+					    "text": "Filtro - Seccional",
 					    "fontSize":15
 					  },
 
@@ -57,8 +57,11 @@
 					]
 			  	},			  	
 			  	{					
-					
-					"mark": "bar", "width": 190, "height": 190, "height": 190,
+					"title": {
+					    "text": "Filtro - Tipo de Servicio",
+					    "fontSize":15
+					  },
+					"mark": "bar", "width": 190, "height": 190,
 					"selection": {"click": {"encodings": ["y"], "type": "multi"}},
 					
 					"encoding": {
@@ -97,7 +100,11 @@
 					
 			  	},			  	
 			  	{
-					"title": "","mark": "bar","width": 190,
+					"title": {
+					    "text": "",
+					    "fontSize":15
+					  },
+					"mark": "bar","width": 190,
 					"selection": {"click": {"encodings": ["y"], "type": "multi"}},
 					"encoding": {
 						
@@ -132,6 +139,7 @@
 					"hconcat": [
 						{"vconcat": [{
 							"title": "P1: ¿El trato que recibio en la atención fue?","mark": "text","width": 400, "height": 1
+
 							},{"hconcat": [
 
 							{
