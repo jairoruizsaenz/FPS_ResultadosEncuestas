@@ -1,3 +1,7 @@
+.vega-actions {
+    display: none
+}
+
 .vega-actions a {
     margin-right: 15px;
 }
